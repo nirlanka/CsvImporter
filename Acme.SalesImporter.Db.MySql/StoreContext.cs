@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Acme.SalesImporter.Db.Interfaces;
 using Acme.SalesImporter.Models;
 using Microsoft.EntityFrameworkCore;

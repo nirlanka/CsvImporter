@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Acme.SalesImporter.Db.Interfaces;
 using Acme.SalesImporter.Db.MySql;
@@ -14,6 +13,9 @@ namespace Acme.SalesImporter
         internal static async Task Import(string source)
         {
             //TODO: Implement storing each read line async.
+
+            IStoreContext storeContext = new StoreContext();
+            storeContext.Connect();
 
             await Store(await Read(source));
         }

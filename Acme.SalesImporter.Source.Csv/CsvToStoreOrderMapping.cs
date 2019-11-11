@@ -9,7 +9,7 @@ namespace Acme.SalesImporter.Source.Csv
         {
             Map(x => x.OrderId).Name("order id");
             Map(x => x.OrderDate).Name("order date").TypeConverterOption.Format("dd.MM.yy");
-            Map(x => x.ShipDate).Name("ship date").TypeConverterOption.Format("dd.MM.yy"); ;
+            Map(x => x.ShipDate).Name("ship date").TypeConverterOption.Format("dd.MM.yy");
             Map(x => x.ShipMode).Name("ship mode");
             Map(x => x.Quantity).Name("quantity");
             Map(x => x.Discount).Name("discount");
