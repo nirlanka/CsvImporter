@@ -1,0 +1,53 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.SalesImporter", "Acme.SalesImporter\Acme.SalesImporter.csproj", "{1F16B1C8-AC43-42CD-AEAA-6CCA91E9DB8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.SalesImporter.Models", "Acme.SalesImporter.Models\Acme.SalesImporter.Models.csproj", "{82C0508B-AFD3-4D14-BA57-64D5358F71C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.SalesImporter.Db.MySql", "Acme.SalesImporter.Db.MySql\Acme.SalesImporter.Db.MySql.csproj", "{90C04B01-7911-44C2-B94B-591CD91D2744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.SalesImporter.Db.Interfaces", "Acme.SalesImporter.Db.Interfaces\Acme.SalesImporter.Db.Interfaces.csproj", "{12BBE3CE-F409-4F99-BF00-42DC86BC1E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.SalesImporter.Source.Interfaces", "Acme.SalesImporter.Source.Interfaces\Acme.SalesImporter.Source.Interfaces.csproj", "{CD492440-E0C8-46EB-840B-82798D8293D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.SalesImporter.Source.Csv", "Acme.SalesImporter.Source.Csv\Acme.SalesImporter.Source.Csv.csproj", "{02EB1925-E713-4F87-8212-35D306DB8827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.SalesImporter.Utils", "Acme.SalesImporter.Utils\Acme.SalesImporter.Utils.csproj", "{2CAE2C6F-B229-41E8-BAF4-00589DA4460D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F16B1C8-AC43-42CD-AEAA-6CCA91E9DB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F16B1C8-AC43-42CD-AEAA-6CCA91E9DB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F16B1C8-AC43-42CD-AEAA-6CCA91E9DB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F16B1C8-AC43-42CD-AEAA-6CCA91E9DB8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82C0508B-AFD3-4D14-BA57-64D5358F71C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C0508B-AFD3-4D14-BA57-64D5358F71C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C0508B-AFD3-4D14-BA57-64D5358F71C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C0508B-AFD3-4D14-BA57-64D5358F71C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90C04B01-7911-44C2-B94B-591CD91D2744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90C04B01-7911-44C2-B94B-591CD91D2744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90C04B01-7911-44C2-B94B-591CD91D2744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90C04B01-7911-44C2-B94B-591CD91D2744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12BBE3CE-F409-4F99-BF00-42DC86BC1E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12BBE3CE-F409-4F99-BF00-42DC86BC1E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12BBE3CE-F409-4F99-BF00-42DC86BC1E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12BBE3CE-F409-4F99-BF00-42DC86BC1E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD492440-E0C8-46EB-840B-82798D8293D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD492440-E0C8-46EB-840B-82798D8293D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD492440-E0C8-46EB-840B-82798D8293D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD492440-E0C8-46EB-840B-82798D8293D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02EB1925-E713-4F87-8212-35D306DB8827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02EB1925-E713-4F87-8212-35D306DB8827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02EB1925-E713-4F87-8212-35D306DB8827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02EB1925-E713-4F87-8212-35D306DB8827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CAE2C6F-B229-41E8-BAF4-00589DA4460D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CAE2C6F-B229-41E8-BAF4-00589DA4460D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CAE2C6F-B229-41E8-BAF4-00589DA4460D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CAE2C6F-B229-41E8-BAF4-00589DA4460D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

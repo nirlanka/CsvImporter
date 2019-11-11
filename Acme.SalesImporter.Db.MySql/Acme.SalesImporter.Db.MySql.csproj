@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.SalesImporter.Models\Acme.SalesImporter.Models.csproj" />
+    <ProjectReference Include="..\Acme.SalesImporter.Db.Interfaces\Acme.SalesImporter.Db.Interfaces.csproj" />
+  </ItemGroup>
+</Project>

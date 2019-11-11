@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.SalesImporter.Source.Interfaces\Acme.SalesImporter.Source.Interfaces.csproj" />
+    <ProjectReference Include="..\Acme.SalesImporter.Models\Acme.SalesImporter.Models.csproj" />
+    <ProjectReference Include="..\Acme.SalesImporter.Utils\Acme.SalesImporter.Utils.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="TinyCsvParser" Version="2.5.2" />
+  </ItemGroup>
+</Project>

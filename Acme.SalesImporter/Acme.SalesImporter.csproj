@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.6.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Cli\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="appsettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.SalesImporter.Models\Acme.SalesImporter.Models.csproj" />
+    <ProjectReference Include="..\Acme.SalesImporter.Db.Interfaces\Acme.SalesImporter.Db.Interfaces.csproj" />
+    <ProjectReference Include="..\Acme.SalesImporter.Db.MySql\Acme.SalesImporter.Db.MySql.csproj" />
+    <ProjectReference Include="..\Acme.SalesImporter.Source.Csv\Acme.SalesImporter.Source.Csv.csproj" />
+    <ProjectReference Include="..\Acme.SalesImporter.Source.Interfaces\Acme.SalesImporter.Source.Interfaces.csproj" />
+  </ItemGroup>
+</Project>
