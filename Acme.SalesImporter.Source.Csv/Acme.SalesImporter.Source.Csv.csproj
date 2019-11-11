@@ -10,6 +10,6 @@
     <ProjectReference Include="..\Acme.SalesImporter.Utils\Acme.SalesImporter.Utils.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="TinyCsvParser" Version="2.5.2" />
+    <PackageReference Include="CsvHelper" Version="12.2.1" />
   </ItemGroup>
 </Project>

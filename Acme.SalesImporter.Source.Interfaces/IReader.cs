@@ -4,7 +4,7 @@ using Acme.SalesImporter.Models;
 
 namespace Acme.SalesImporter.Source.Interfaces
 {
-    public interface IReader
+    public interface IStoreOrderReader
     {
         Task<IEnumerable<StoreOrder>> ReadSource(string source);
     }

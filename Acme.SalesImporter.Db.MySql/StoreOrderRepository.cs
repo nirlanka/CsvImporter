@@ -28,6 +28,10 @@ namespace Acme.SalesImporter.Db.MySql
             {
                 Console.WriteLine(@"Some values are breaking the constrains. Failed.");
             }
+            catch (ArgumentNullException argNullEx)
+            {
+                Console.WriteLine(@"Some required values are missing. Failed.");
+            }
         }
 
         public async Task Add(StoreOrder storeOrder)
@@ -43,6 +47,10 @@ namespace Acme.SalesImporter.Db.MySql
             catch (InvalidOperationException invalidOpEx)
             {
                 Console.WriteLine(@"Some values are breaking the constrains. Failed.");
+            }
+            catch (ArgumentNullException argNullEx)
+            {
+                Console.WriteLine(@"Some required values are missing. Failed.");
             }
         }
     }

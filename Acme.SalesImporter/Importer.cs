@@ -28,7 +28,7 @@ namespace Acme.SalesImporter
         {
             //TODO: Make these interfaces and classes injectable.
 
-            IReader reader = new CsvReader();
+            IStoreOrderReader reader = new StoreOrderCsvReader();
             return await reader.ReadSource(source);
         }
     }
