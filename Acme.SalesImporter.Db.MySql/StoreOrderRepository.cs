@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Acme.SalesImporter.Db.Interfaces;
 using Acme.SalesImporter.Models;
+using Acme.SalesImporter.Utils.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Acme.SalesImporter.Db.MySql
@@ -26,16 +27,15 @@ namespace Acme.SalesImporter.Db.MySql
             }
             catch (InvalidOperationException)
             {
-                Console.WriteLine("ERROR: Some values are not compatible with the schema. Aborting.");
+                throw new DestinationException($"Some values are not compatible with the schema. Aborting.");
             }
             catch (ArgumentNullException)
             {
-                Console.WriteLine("ERROR: Some required values are missing. Aborting.");
+                throw new DestinationException($"Some required values are missing. Aborting.");
             }
             catch (DbUpdateException dbUpdateEx)
             {
-                Console.WriteLine("ERROR: Database update failed.");
-                Console.WriteLine($"  --> {dbUpdateEx?.InnerException?.Message}");
+                throw new DestinationException($"Database update failed.\n  --> {dbUpdateEx?.InnerException?.Message}");
             }
         }
     }

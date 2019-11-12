@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Acme.SalesImporter.Db.Interfaces;
+using Acme.SalesImporter.Log;
 using Acme.SalesImporter.Models;
 using Acme.SalesImporter.Source.Interfaces;
+using Acme.SalesImporter.Utils.Exceptions;
 
 namespace Acme.SalesImporter
 {
@@ -13,8 +15,21 @@ namespace Acme.SalesImporter
             IStoreContext storeContext = ServiceMapper.StoreContext;
             storeContext.Connect();
 
-            Store(Read(source));
-            Console.WriteLine("Done.");
+            try
+            {
+                Store(Read(source));
+                Logger.LogLine("Done.");
+            }
+            catch (SourceException srcEx)
+            {
+                Logger.LogLine(srcEx.Message);
+                Logger.LogLine("Exiting.");
+            }
+            catch (DestinationException destEx)
+            {
+                Logger.LogLine(destEx.Message);
+                Logger.LogLine("Exiting.");
+            }
         }
 
         private static void Store(IEnumerable<StoreOrder> storeOrders)

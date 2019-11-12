@@ -10,6 +10,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cli\" />
+    <Folder Include="Log\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />

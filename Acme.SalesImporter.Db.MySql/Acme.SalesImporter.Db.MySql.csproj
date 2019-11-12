@@ -15,5 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Acme.SalesImporter.Models\Acme.SalesImporter.Models.csproj" />
     <ProjectReference Include="..\Acme.SalesImporter.Db.Interfaces\Acme.SalesImporter.Db.Interfaces.csproj" />
+    <ProjectReference Include="..\Acme.SalesImporter.Utils\Acme.SalesImporter.Utils.csproj" />
   </ItemGroup>
 </Project>
