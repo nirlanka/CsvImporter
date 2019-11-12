@@ -6,7 +6,6 @@ namespace Acme.SalesImporter.Db.Interfaces
 {
     public interface IStoreOrderRepository
     {
-        public Task Add(IEnumerable<StoreOrder> storeOrders);
-        public Task Add(StoreOrder storeOrder);
+        public void Add(IEnumerable<StoreOrder> storeOrders);
     }
 }

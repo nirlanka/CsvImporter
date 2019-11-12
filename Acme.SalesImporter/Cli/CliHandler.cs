@@ -12,20 +12,23 @@ namespace Acme.SalesImporter.Cli
                 args = new string[] { "-f", "sales.csv" };
             }
 
-            Parser.Default.ParseArguments<CliOptions>(args)
-                .WithParsed(o =>
-                {
-                    if (!string.IsNullOrWhiteSpace(o.FileName))
-                    {
-                        Console.WriteLine($"Reading from {o.FileName}...");
-                        Importer.Import(o.FileName).GetAwaiter().GetResult(); //TODO: See if this could be async, for example showing progress
-                    }
-                    else
-                    {
-                        Console.WriteLine("No arguments supplied.");
-                        Console.WriteLine("Quittig without doing anything.");
-                    }
-                });
+            Parser.Default
+                .ParseArguments<CliOptions>(args)
+                .WithParsed(HandleOptions);
+        }
+
+        public static void HandleOptions(CliOptions options)
+        {
+            if (!string.IsNullOrWhiteSpace(options.FileName))
+            {
+                Console.WriteLine($"Importing from {options.FileName}...");
+                Importer.Import(options.FileName);
+            }
+            else
+            {
+                Console.WriteLine("No arguments supplied.");
+                Console.WriteLine("Quittig without doing anything.");
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Acme.SalesImporter.Db.Interfaces;
 using Acme.SalesImporter.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Acme.SalesImporter.Db.MySql
 {
@@ -10,7 +11,7 @@ namespace Acme.SalesImporter.Db.MySql
     {
         private StoreContext context;
 
-        public async Task Add(IEnumerable<StoreOrder> storeOrders)
+        public void Add(IEnumerable<StoreOrder> storeOrders)
         {
             try
             {
@@ -18,39 +19,24 @@ namespace Acme.SalesImporter.Db.MySql
                 {
                     foreach (var order in storeOrders)
                     {
-                        await context.StoreOrders.AddAsync(order);
+                        context.StoreOrders.AddAsync(order);
                     }
 
                     context.SaveChanges();
                 }
             }
-            catch (InvalidOperationException invalidOpEx)
+            catch (InvalidOperationException)
             {
-                Console.WriteLine(@"Some values are breaking the constrains. Failed.");
+                Console.WriteLine("ERROR: Some values are not compatible with the schema. Aborting.");
             }
-            catch (ArgumentNullException argNullEx)
+            catch (ArgumentNullException)
             {
-                Console.WriteLine(@"Some required values are missing. Failed.");
+                Console.WriteLine("ERROR: Some required values are missing. Aborting.");
             }
-        }
-
-        public async Task Add(StoreOrder storeOrder)
-        {
-            try
+            catch (DbUpdateException)
             {
-                using (context ??= new StoreContext())
-                {
-                    await context.StoreOrders.AddAsync(storeOrder);
-                    context.SaveChanges();
-                }
-            }
-            catch (InvalidOperationException invalidOpEx)
-            {
-                Console.WriteLine(@"Some values are breaking the constrains. Failed.");
-            }
-            catch (ArgumentNullException argNullEx)
-            {
-                Console.WriteLine(@"Some required values are missing. Failed.");
+                Console.WriteLine("ERROR: Duplicate detected. Failed.");
+                Console.WriteLine("  Order ID, Product ID and Customer ID should be unique.");
             }
         }
     }
