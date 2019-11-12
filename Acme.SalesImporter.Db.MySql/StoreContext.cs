@@ -12,7 +12,7 @@ namespace Acme.SalesImporter.Db.MySql
 
         public void Connect()
         {
-            Database.EnsureCreated(); // Create database if it doesn't exist
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
