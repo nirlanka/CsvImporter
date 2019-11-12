@@ -1,13 +1,14 @@
 ﻿using Acme.SalesImporter.Db.Interfaces;
 using Acme.SalesImporter.Db.MySql;
+using Acme.SalesImporter.ServiceMappers;
 using Acme.SalesImporter.Source.Csv;
 using Acme.SalesImporter.Source.Interfaces;
 
 namespace Acme.SalesImporter
 {
-    public static class ServiceMapper
+    public class CsvToMySqlServiceMapper : IServiceMapper
     {
-        public static IStoreOrderReader StoreOrderReader
+        public IStoreOrderReader StoreOrderReader
         {
             get
             {
@@ -15,9 +16,9 @@ namespace Acme.SalesImporter
                 return __storeOrderReader;
             }
         }
-        private static IStoreOrderReader __storeOrderReader;
+        private IStoreOrderReader __storeOrderReader;
 
-        public static IStoreContext StoreContext
+        public IStoreContext StoreContext
         {
             get
             {
@@ -25,9 +26,9 @@ namespace Acme.SalesImporter
                 return __storeContext;
             }
         }
-        private static IStoreContext __storeContext;
+        private IStoreContext __storeContext;
 
-        public static IStoreOrderRepository StoreOrderRepository
+        public IStoreOrderRepository StoreOrderRepository
         {
             get
             {
@@ -35,6 +36,6 @@ namespace Acme.SalesImporter
                 return __storeOrderRepository;
             }
         }
-        private static IStoreOrderRepository __storeOrderRepository;
+        private IStoreOrderRepository __storeOrderRepository;
     }
 }

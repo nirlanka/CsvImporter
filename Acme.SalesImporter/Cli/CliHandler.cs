@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Acme.SalesImporter.Log;
 using CommandLine;
 
 namespace Acme.SalesImporter.Cli
@@ -21,13 +21,15 @@ namespace Acme.SalesImporter.Cli
         {
             if (!string.IsNullOrWhiteSpace(options.FileName))
             {
-                Console.WriteLine($"Importing from {options.FileName}...");
-                Importer.Import(options.FileName);
+                Logger.LogLine($"Importing from {options.FileName}...");
+
+                var importer = new Importer(new CsvToMySqlServiceMapper());
+                importer.Import(options.FileName);
             }
             else
             {
-                Console.WriteLine("No arguments supplied.");
-                Console.WriteLine("Quittig without doing anything.");
+                Logger.LogLine("No arguments supplied.");
+                Logger.LogLine("Quittig without doing anything.");
             }
         }
     }

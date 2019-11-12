@@ -1,16 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Acme.SalesImporter.Db.Interfaces;
 using Acme.SalesImporter.Log;
 using Acme.SalesImporter.Models;
+using Acme.SalesImporter.ServiceMappers;
 using Acme.SalesImporter.Source.Interfaces;
 using Acme.SalesImporter.Utils.Exceptions;
 
 namespace Acme.SalesImporter
 {
-    public static class Importer
+    public class Importer
     {
-        internal static void Import(string source)
+        private readonly IServiceMapper ServiceMapper;
+
+        public Importer(IServiceMapper serviceMapper)
+        {
+            ServiceMapper = serviceMapper;
+        }
+
+        internal void Import(string source)
         {
             IStoreContext storeContext = ServiceMapper.StoreContext;
             storeContext.Connect();
@@ -32,13 +39,13 @@ namespace Acme.SalesImporter
             }
         }
 
-        private static void Store(IEnumerable<StoreOrder> storeOrders)
+        private void Store(IEnumerable<StoreOrder> storeOrders)
         {
             IStoreOrderRepository storeOrderRepository = ServiceMapper.StoreOrderRepository;
             storeOrderRepository.Add(storeOrders);
         }
 
-        internal static IEnumerable<StoreOrder> Read(string source)
+        internal IEnumerable<StoreOrder> Read(string source)
         {
             IStoreOrderReader reader = ServiceMapper.StoreOrderReader;
             return reader.ReadSource(source);
