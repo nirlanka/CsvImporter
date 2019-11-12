@@ -9,7 +9,9 @@ Supports:
 
 ## Usage
 
-Either,
+First, build the solution. 
+
+The, either,
 - run the binary in the command line with `./Acme.SalesImporter -f ./path/file.csv`.
 - place the CSV as `sales.csv` next to the `Acme.SalesImporter` binary and just run `./Acme.SalesImporter`.
 
@@ -22,6 +24,10 @@ Either,
 ### The CSV file is always relatively small
 
 If it were very large, extracting from the file and pushing to the database should be done in surges (i.e. broken into multiple sets of `ServiceOrders` and saved separately) to avoid memory consumption. But that would be fundementally different from the current validations, as validations (such as `UNIQUE`) will only happen inside each set.
+
+### Whole operation should fail if one entry fails
+
+If one row fails validation, nothing in the file should be added to the database.
 
 ## Decisions
 
@@ -57,11 +63,11 @@ In a general perspective, the data seems like a common possibility. Therefore, m
 ```sql
 CREATE TABLE STORE_ORDER (
   -- ...
-  ORDER_ID VARCHAR(20) NOT NULL,
+  ORDER_ID VARCHAR(20) NOT NULL, -- not UNIQUE
   -- ...
-  PRODUCT_ID VARCHAR(20) NOT NULL,
+  PRODUCT_ID VARCHAR(20) NOT NULL, -- not UNIQUE
   -- ...
-  CUSTOMER_ID VARCHAR(20) NOT NULL
+  CUSTOMER_ID VARCHAR(20) NOT NULL -- not UNIQUE
 );
 
 ALTER TABLE STORE_ORDER 
