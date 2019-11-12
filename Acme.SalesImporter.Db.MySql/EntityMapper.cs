@@ -11,19 +11,38 @@ namespace Acme.SalesImporter.Db.MySql
             {
                 entity.HasKey(e => e.Id);
 
-                entity.Property(e => e.OrderId).HasColumnType("VARCHAR(20)").IsRequired();
-                entity.Property(e => e.OrderDate).IsRequired();
-                entity.Property(e => e.ShipDate).IsRequired();
-                entity.Property(e => e.ShipMode).HasColumnType("VARCHAR(20)");
-                entity.Property(e => e.Quantity).IsRequired();
-                entity.Property(e => e.Discount).HasColumnType("DECIMAL(3,2)");
-                entity.Property(e => e.Profit).HasColumnType("DECIMAL(6,2)");
-                entity.Property(e => e.ProductId).HasColumnType("VARCHAR(20)").IsRequired();
-                entity.Property(e => e.CustomerName).HasColumnType("VARCHAR(255)").IsRequired();
-                entity.Property(e => e.Category).HasColumnType("VARCHAR(255)").IsRequired();
-                entity.Property(e => e.CustomerId).HasColumnType("VARCHAR(20)").IsRequired();
+                entity.Property(e => e.OrderId)
+                    .HasColumnType("VARCHAR(20)")
+                    .IsRequired();
+                entity.Property(e => e.OrderDate)
+                    .HasColumnType("DATE")
+                    .IsRequired();
+                entity.Property(e => e.ShipDate)
+                    .HasColumnType("DATE")
+                    .IsRequired();
+                entity.Property(e => e.ShipMode)
+                    .HasColumnType("VARCHAR(20)");
+                entity.Property(e => e.Quantity)
+                    .HasColumnType("INT")
+                    .IsRequired();
+                entity.Property(e => e.Discount)
+                    .HasColumnType("DECIMAL(3,2)");
+                entity.Property(e => e.Profit)
+                    .HasColumnType("DECIMAL(6,2)");
+                entity.Property(e => e.ProductId)
+                    .HasColumnType("VARCHAR(20)")
+                    .IsRequired();
+                entity.Property(e => e.CustomerName)
+                    .HasColumnType("VARCHAR(255)")
+                    .IsRequired();
+                entity.Property(e => e.Category)
+                    .HasColumnType("VARCHAR(255)")
+                    .IsRequired();
+                entity.Property(e => e.CustomerId)
+                    .HasColumnType("VARCHAR(20)")
+                    .IsRequired();
 
-                entity.HasAlternateKey("OrderId", "ProductId", "CustomerId");
+                entity.HasIndex("OrderId", "ProductId", "CustomerId").IsUnique(); // Assumed to be a composite key
             });
         }
     }
