@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Acme.SalesImporter.Db.Interfaces;
 using Acme.SalesImporter.Models;
 using Microsoft.EntityFrameworkCore;
@@ -33,10 +32,10 @@ namespace Acme.SalesImporter.Db.MySql
             {
                 Console.WriteLine("ERROR: Some required values are missing. Aborting.");
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException dbUpdateEx)
             {
-                Console.WriteLine("ERROR: Duplicate detected. Failed.");
-                Console.WriteLine("  Order ID, Product ID and Customer ID should be unique.");
+                Console.WriteLine("ERROR: Database update failed.");
+                Console.WriteLine($"  --> {dbUpdateEx?.InnerException?.Message}");
             }
         }
     }

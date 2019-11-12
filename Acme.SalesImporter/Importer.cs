@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Acme.SalesImporter.Db.Interfaces;
 using Acme.SalesImporter.Models;
 using Acme.SalesImporter.Source.Interfaces;
@@ -13,6 +14,7 @@ namespace Acme.SalesImporter
             storeContext.Connect();
 
             Store(Read(source));
+            Console.WriteLine("Done.");
         }
 
         private static void Store(IEnumerable<StoreOrder> storeOrders)
