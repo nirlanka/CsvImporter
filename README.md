@@ -41,7 +41,7 @@ I first attempted to use TinyCsvParser, which is quite fast. But it can't handle
 
 ### Use `appsettings.json`
 
-This was based on ease of configurability, so that no compilation is needed to change database connection. The next step would be to enable setting the connection string from the CLI.
+This was based on ease of configurability, so that no compilation is needed to change database connection. The next step would be to enable setting the connection string from the CLI. (I left this file and connection string in version control, since the database it points doesn't exist anymore).
 
 ### Using data I/O through interfaces
 
